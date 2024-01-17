@@ -27,20 +27,24 @@ public class StringOps {
 
     public static String capVowelsLowRest (String string) {
         // Write your code here:
-        String newst = "";
+         String newst = "";
         for (int i = 0; i < string.length(); i++) {
             char ch = string.charAt(i);
             int ascii = (int) ch;
-            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+            if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+                newst = newst + ch;
+            } else if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
                 ch = (char) (ascii - 32);
+                newst = newst + ch;
             } else if (ascii >= 65 && ascii <= 90) {
-                ch = (char) (ascii + 32);
-            }
+            ch = (char) (ascii + 32);
             newst = newst + ch;
+            } else {
+            newst = newst + ch;
+            }
         }
         return newst;
     }
-
     public static String camelCase (String string) {
         // Write your code here:
         return "";
