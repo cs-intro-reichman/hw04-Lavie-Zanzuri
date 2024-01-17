@@ -1,8 +1,6 @@
 public class ArrayOps {
     public static void main(String[] args) {
-    int[] array1 = {2,8,3,7,8};
-    int result = secondMaxValue (array1);
-    System.out.println(result);
+    
     }
     
     public static int findMissingInt (int [] array) {
@@ -18,18 +16,16 @@ public class ArrayOps {
         return missingInt ;
     }
 
-    public static int secondMaxValue(int [] array) {
-        // Write your code here:
-        int max = array [0] ;
-        int secondMax = array [0] ;
-        for (int i = 0 ; i < array.length ; i ++) {
-            if (array [i] >= max) {
-                max = array [i] ;
-            }
-        }
-        for (int i = 0; i < array.length; i ++) {
-            if (array [i] > secondMax && array [i] < max) {
-                secondMax = array [i] ;
+    public static int secondMaxValue(int[] array) {
+        int max = array[0];
+        int secondMax = array[0];
+        for (int i = 1; i < array.length; i ++) {
+            if (array[i] >= max) {
+                secondMax = max;
+                max = array[i];
+            } 
+            else if (array[i] > secondMax) {
+                secondMax = array[i];
             }
         }
         return secondMax;
