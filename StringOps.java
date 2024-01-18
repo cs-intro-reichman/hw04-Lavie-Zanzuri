@@ -48,8 +48,45 @@ public class StringOps {
     }
 
     public static String camelCase (String string) {
-       
-        return string;
+           // Write your code here:
+        String newWord = "";
+        String newst = "";
+        int i = 0;
+        int ascii = 0;
+        int j = 1;
+        boolean isFirst = false;
+        while (string.charAt(i) == ' ') {
+            i ++ ;
+        }
+        newWord = string.substring(i);
+        ascii = (int) newWord.charAt(0);
+        if (ascii >= 65 && ascii <= 90) {
+            newst = newst + (char) (ascii + 32);
+        }
+        if (ascii >= 97 && ascii <= 122) {
+            newst = newst + newWord.charAt(0); 
+        }
+        while(j < newWord.length()){
+            char ch = newWord.charAt(j);
+            if(ch == ' ') {
+                isFirst = true ;
+            }
+            else {
+                if ((newWord.charAt(j) >= 'a' && newWord.charAt(j) <= 'z') && isFirst == false){
+                    newst = newst + (char) (newWord.charAt(j));
+                } else if ((newWord.charAt(j) >= 'A' && newWord.charAt(j) <= 'Z') && isFirst == true){
+                    newst = newst + (char) (newWord.charAt(j));
+                
+                } else if ((newWord.charAt(j) >= 'A' && newWord.charAt(j) <= 'Z') && isFirst == false){
+                    newst = newst + (char) (newWord.charAt(j) + 32);
+                } else if ((newWord.charAt(j) >= 'a' && newWord.charAt(j) <= 'z') && isFirst== true){
+                    newst = newst + (char) (newWord.charAt(j) - 32);
+                }
+                isFirst = false;
+            }
+            j++;
+        }
+        return newst;
     }
 
     public static int[] allIndexOf(String string, char chr) {
