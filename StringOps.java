@@ -48,23 +48,8 @@ public class StringOps {
     }
 
     public static String camelCase (String string) {
-        // Write your code here:
-        String newWord = "";
-        String newst = "";
-        int i = 0;
-        int ascii = 0;
-        while (string.charAt(i)) {
-            i ++ ;
-        }
-        newWord = string.substring(i);
-        ascii = (int) newWord.charAt(i);
-        if (ascii >= 65 && ascii <= 90) {
-            newst = newst + (char) (ascii + 32);
-        }
-        if (ascii >= 97 && ascii <= 122) {
-            newst = newst + 
-        }
-        return "";
+       
+        return string;
     }
 
     public static int[] allIndexOf(String string, char chr) {
