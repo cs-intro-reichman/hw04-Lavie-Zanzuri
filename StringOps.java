@@ -47,6 +47,43 @@ public class StringOps {
     }
     public static String camelCase (String string) {
         // Write your code here:
+        String newWord = "";
+        String newst = "";
+        int i = 0;
+        int ascii = 0;
+        int j = 0 ;
+        while (string.charAt(i) == ' ') {
+            i ++ ;
+        }
+        newWord = string.substring(i);
+        ascii = (int) newWord.charAt(0);
+        if (ascii >= 65 && ascii <= 90) {
+            newst = newst + (char) (ascii + 32);
+        }
+        if (ascii >= 97 && ascii <= 122) {
+            newst = newst + newWord.charAt(0);
+        }
+        boolean isFirstLetter = false;
+        while (j < newWord.length()) {
+            char ch = newWord.charAt(j);
+            if (ch == ' ') {
+                isFirstLetter = true;
+            }
+            else {
+                if ((newWord.charAt(j) >= 'a' && newWord.charAt(j) <= 'z') && isFirstLetter == false){
+                    newst = newst + (char) (newWord.charAt(j));
+                } else if ((newWord.charAt(j) >= 'A' && newWord.charAt(j) <= 'Z') && isFirstLetter == true){
+                    newst = newst + (char) (newWord.charAt(j));
+                
+                } else if ((newWord.charAt(j) >= 'A' && newWord.charAt(j) <= 'Z') && isFirstLetter == false){
+                    newst = newst + (char) (newWord.charAt(j) + 32);
+                } else if ((newWord.charAt(j) >= 'a' && newWord.charAt(j) <= 'z') && isFirstLetter == true){
+                    newst = newst + (char) (newWord.charAt(j) - 32);
+                }
+                isFirstLetter = false;
+        }
+        j++;
+        return newst
         return "";
     }
 
