@@ -22,21 +22,89 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
+    
+
     }
 
     public static String capVowelsLowRest (String string) {
         // Write your code here:
-        return "";
+        String newst = "";
+        for (int i = 0; i < string.length(); i++) {
+            char ch = string.charAt(i);
+            int ascii = (int) ch;
+            if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+                newst = newst + ch;
+            } else if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                ch = (char) (ascii - 32);
+                newst = newst + ch;
+            } else if (ascii >= 65 && ascii <= 90) {
+            ch = (char) (ascii + 32);
+            newst = newst + ch;
+            } else {
+            newst = newst + ch;
+            }
+        }
+        return newst;
     }
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+           // Write your code here:
+        String newWord = "";
+        String newst = "";
+        int i = 0;
+        int ascii = 0;
+        int j = 1;
+        boolean isFirst = false;
+        while (string.charAt(i) == ' ') {
+            i ++ ;
+        }
+        newWord = string.substring(i);
+        ascii = (int) newWord.charAt(0);
+        if (ascii >= 65 && ascii <= 90) {
+            newst = newst + (char) (ascii + 32);
+        }
+        if (ascii >= 97 && ascii <= 122) {
+            newst = newst + newWord.charAt(0); 
+        }
+        while(j < newWord.length()){
+            char ch = newWord.charAt(j);
+            if(ch == ' ') {
+                isFirst = true ;
+            }
+            else {
+                if ((newWord.charAt(j) >= 'a' && newWord.charAt(j) <= 'z') && isFirst == false){
+                    newst = newst + (char) (newWord.charAt(j));
+                } else if ((newWord.charAt(j) >= 'A' && newWord.charAt(j) <= 'Z') && isFirst == true){
+                    newst = newst + (char) (newWord.charAt(j));
+                
+                } else if ((newWord.charAt(j) >= 'A' && newWord.charAt(j) <= 'Z') && isFirst == false){
+                    newst = newst + (char) (newWord.charAt(j) + 32);
+                } else if ((newWord.charAt(j) >= 'a' && newWord.charAt(j) <= 'z') && isFirst== true){
+                    newst = newst + (char) (newWord.charAt(j) - 32);
+                }
+                isFirst = false;
+            }
+            j++;
+        }
+        return newst;
     }
 
-    public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+    public static int[] allIndexOf(String string, char chr) {
+        int count = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if (chr == string.charAt(i)) {
+                count ++;
+            }
+        }
+        int[] array = new int[count];
+        int index = 0;
+        for (int j = 0; j < string.length(); j++) {
+            if (chr == string.charAt(j)) {
+                array[index] = j;
+                index++;
+            }
+        }
+        return array;
     }
+
 }
